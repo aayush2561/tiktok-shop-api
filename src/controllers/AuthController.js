@@ -21,7 +21,7 @@ export const signup = async (req, res) => {
     }
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     req.body.password = hashedPassword;
-
+    req.body.role= 'user';
     let profilePhotoUrl = null;
     if (req.file) {
       const result = await cloudinary.uploader.upload(req.file.path);

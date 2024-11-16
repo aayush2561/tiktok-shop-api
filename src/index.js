@@ -22,7 +22,7 @@ app.use(cookieParser());
 
 app.use('/api/v1/auth', AuthRoute);
 app.use('/api/v1/user', UserRoute);
-app.use('/api/v1/product',ProductRoute);
+app.use('/api/v1/product', ProductRoute);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
