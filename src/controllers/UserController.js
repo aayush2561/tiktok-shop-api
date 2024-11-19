@@ -73,3 +73,23 @@ export const getUserProfile = async (req, res) => {
       .json({ message: 'Error occured while getting profile' });
   }
 };
+
+export const updateUserRole = async (req, res) => {
+  const { userId, role } = req.body;
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    user.role = role;
+    await user.save();
+    return res
+      .status(200)
+      .json({ message: 'User role updated successfully', user });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ error: 'Failed to update user role', details: error.message });
+  }
+};
+
