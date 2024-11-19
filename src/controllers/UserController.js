@@ -92,4 +92,3 @@ export const updateUserRole = async (req, res) => {
       .json({ error: 'Failed to update user role', details: error.message });
   }
 };
-

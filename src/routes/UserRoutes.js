@@ -3,7 +3,7 @@ import {
   updateUserProfile,
   deleteUser,
   getUserProfile,
-  updateUserRole
+  updateUserRole,
 } from '../controllers/UserController.js';
 import { protectedRoute } from '../middleware/ProtectedRoute.js';
 import upload from '../middleware/MulterUpload.js';
@@ -29,9 +29,5 @@ router.get(
   getUserProfile
 );
 
-router.patch(
-  '/profile/role',
-  protectedRoute(['admin']), 
-  updateUserRole
-);
+router.patch('/profile/role', protectedRoute(['admin']), updateUserRole);
 export default router;
