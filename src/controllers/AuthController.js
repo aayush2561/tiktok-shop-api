@@ -44,7 +44,6 @@ export const signup = async (req, res) => {
       .json({ message: 'Error occured during signup, please try again later' });
   }
 };
-
 export const login = async (req, res) => {
   try {
     const existingUser = await User.findOne({ email: req.body.email });
@@ -66,7 +65,6 @@ export const login = async (req, res) => {
     });
   }
 };
-
 export const sendOtp = async (req, res) => {
   try {
     const existingUser = await User.findById(req.body.user);
@@ -104,7 +102,6 @@ export const sendOtp = async (req, res) => {
     });
   }
 };
-
 export const verifyOtp = async (req, res) => {
   try {
     const isValidUser = await User.findById(req.body.userId);
@@ -147,7 +144,6 @@ export const verifyOtp = async (req, res) => {
     res.status(500).json({ message: 'Some Error occured' });
   }
 };
-
 export const forgotPassword = async (req, res) => {
   let newToken;
   try {
@@ -193,7 +189,6 @@ export const forgotPassword = async (req, res) => {
       .json({ message: 'Error occurred while sending password reset mail' });
   }
 };
-
 export const resetPassword = async (req, res) => {
   try {
     const isExistingUser = await User.findById(req.body.userId);
@@ -239,7 +234,6 @@ export const resetPassword = async (req, res) => {
     });
   }
 };
-
 export const logout = async (req, res) => {
   try {
     res.cookie('token', '', { maxAge: 0 });
@@ -248,7 +242,6 @@ export const logout = async (req, res) => {
     console.log(error);
   }
 };
-
 export const checkAuth = async (req, res) => {
   try {
     if (req.user) {

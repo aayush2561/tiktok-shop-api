@@ -59,7 +59,6 @@ export const createProduct = async (req, res) => {
     res.status(500).json({ message: 'Error occured while creating product' });
   }
 };
-
 export const getAllproduct = async (req, res) => {
   try {
     const { category } = req.query;
@@ -79,7 +78,6 @@ export const getAllproduct = async (req, res) => {
     res.status(500).json({ message: 'Error occured while getting product.' });
   }
 };
-
 export const getProductbyId = async (req, res) => {
   const { id } = req.params;
   try {
@@ -96,7 +94,6 @@ export const getProductbyId = async (req, res) => {
     res.status(500).json({ message: 'Error occured while getting product.' });
   }
 };
-
 export const deleteById = async (req, res) => {
   const { id } = req.params;
 

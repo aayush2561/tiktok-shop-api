@@ -20,12 +20,18 @@ const orderSchema = new mongoose.Schema({
     enum: ['Pending', 'Out for delivery', 'Cancelled'],
     default: 'Pending',
   },
+
   paymentMode: {
     type: String,
-    enum: ['COD', 'ONLINE'],
+    enum: ['COD', 'ESEWA'],
     required: true,
   },
-  total: {
+  paymentStatus: {
+    type: String,
+    enum: ['Pending', 'Successful', 'Failed'],
+    default: 'Pending',
+  },
+  total_amount: {
     type: Number,
     required: true,
   },

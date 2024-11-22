@@ -34,7 +34,6 @@ export const updateUserProfile = async (req, res) => {
       .json({ message: 'Error occured while updating profile' });
   }
 };
-
 export const deleteUser = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
@@ -50,7 +49,6 @@ export const deleteUser = async (req, res) => {
       .json({ message: 'Error occured while deleting profile' });
   }
 };
-
 export const getUserProfile = async (req, res) => {
   const userId = req.params.id ? req.params.id : req.user.id;
   const fieldsToExclude = ['password'];
@@ -73,7 +71,6 @@ export const getUserProfile = async (req, res) => {
       .json({ message: 'Error occured while getting profile' });
   }
 };
-
 export const updateUserRole = async (req, res) => {
   const { userId, role } = req.body;
   try {

@@ -10,7 +10,6 @@ export const addCart = async (req, res) => {
     return res.status(500).json({ message: 'Error adding item to cart' });
   }
 };
-
 export const getByUserId = async (req, res) => {
   try {
     const cartItems = await Cart.find({ userId: req.user.id }).populate(
@@ -22,7 +21,6 @@ export const getByUserId = async (req, res) => {
     return res.status(500).json({ message: 'Error retrieving cart items' });
   }
 };
-
 export const updateById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -42,7 +40,6 @@ export const updateById = async (req, res) => {
     return res.status(500).json({ message: 'Error updating cart item' });
   }
 };
-
 export const deleteById = async (req, res) => {
   try {
     const { id } = req.params;

@@ -1,8 +1,13 @@
 import Order from '../models/OrderModel.js';
-
+import initiatePayment from '../services/PaymentServices.js';
 export const createOrder = async (req, res) => {
   try {
-    const created = new Order(req.body);
+    const orderData = req.body;
+    if (orderData.paymentMode === 'ESEWA') {
+      const secretKey = process.env.ESEWA_SECRET_KEY;
+      initiatePayment(orderData, secretKey);
+    }
+    const created = new Order(orderData);
     await created.save();
     res.status(201).json({ message: 'Order created sucessfully' });
   } catch (error) {
@@ -12,7 +17,6 @@ export const createOrder = async (req, res) => {
       .json({ message: 'Error creating an order, please trying again later' });
   }
 };
-
 export const getAllOrder = async (req, res) => {
   try {
     const order = await Order.find()
@@ -24,7 +28,6 @@ export const getAllOrder = async (req, res) => {
     res.status(500).json({ message: 'Error occured while getting orders.' });
   }
 };
-
 export const getByUserId = async (req, res) => {
   try {
     const orders = await Order.find({ userId: req.user.id });
@@ -34,7 +37,6 @@ export const getByUserId = async (req, res) => {
     res.status(500).json({ message: 'Error occured while getting orders.' });
   }
 };
-
 export const updateById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -61,7 +63,6 @@ export const updateById = async (req, res) => {
     return res.status(500).json({ message: 'Error while updating order' });
   }
 };
-
 export const deleteById = async (req, res) => {
   try {
     const id = req.params;
@@ -78,7 +79,6 @@ export const deleteById = async (req, res) => {
       .json({ message: 'Error occured while deleting order' });
   }
 };
-
 export const updateStatus = async (req, res) => {
   try {
     const { id } = req.params;
