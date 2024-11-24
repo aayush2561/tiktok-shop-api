@@ -20,7 +20,6 @@ const orderSchema = new mongoose.Schema({
     enum: ['Pending', 'Out for delivery', 'Cancelled'],
     default: 'Pending',
   },
-
   paymentMode: {
     type: String,
     enum: ['COD', 'ESEWA'],

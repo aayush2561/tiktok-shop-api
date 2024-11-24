@@ -15,11 +15,9 @@ export const requestSeller = async (req, res) => {
       !shopInfo.address ||
       !shopInfo.contact
     ) {
-      return res
-        .status(400)
-        .json({
-          message: 'Missing required fields (identity type, images, shop info)',
-        });
+      return res.status(400).json({
+        message: 'Missing required fields (identity type, images, shop info)',
+      });
     }
 
     const frontUpload = await cloudinary.uploader.upload(front.path, {

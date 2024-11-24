@@ -8,6 +8,7 @@ import ProductRoute from './routes/ProductRoutes.js';
 import OrderRoute from './routes/OrderRoute.js';
 import CartRoute from './routes/CartRoutes.js';
 import SellerVerifyRoute from './routes/SellerVerifyroute.js';
+import VideoRoute from './routes/VideoRoute.js'
 
 const app = express();
 const port = 3000;
@@ -28,6 +29,7 @@ app.use('/api/v1/product', ProductRoute);
 app.use('/api/v1/order', OrderRoute);
 app.use('/api/v1/cart', CartRoute);
 app.use('/api/v1/seller-verify', SellerVerifyRoute);
+app.use('/api/v1/video',VideoRoute);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

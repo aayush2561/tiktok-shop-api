@@ -4,7 +4,7 @@ import {
   getSellerRequestbyId,
   getAllSellerRequests,
 } from '../controllers/SellerVerifyController.js';
-import upload from '../middleware/MulterUpload.js';
+import {upload} from '../middleware/MulterUpload.js';
 import { protectedRoute } from '../middleware/ProtectedRoute.js';
 
 const router = express.Router();

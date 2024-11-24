@@ -6,7 +6,7 @@ import {
   getProductbyId,
 } from '../controllers/ProductController.js';
 import { protectedRoute } from '../middleware/ProtectedRoute.js';
-import upload from '../middleware/MulterUpload.js';
+import {upload} from '../middleware/MulterUpload.js';
 const router = express.Router();
 
 router.post(

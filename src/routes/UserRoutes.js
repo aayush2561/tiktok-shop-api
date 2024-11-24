@@ -6,7 +6,7 @@ import {
   updateUserRole,
 } from '../controllers/UserController.js';
 import { protectedRoute } from '../middleware/ProtectedRoute.js';
-import upload from '../middleware/MulterUpload.js';
+import {upload} from '../middleware/MulterUpload.js';
 
 const router = express.Router();
 
